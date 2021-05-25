@@ -1,11 +1,21 @@
 var express = require('express');
-
+var toCSV = require('./convertJSON.js').toCSV;
 var app = express();
 var port = 8000;
 
 
 app.use(express.static('client'));
 
+
+
+app.get('/csv', (req, res) => {
+  debugger;
+  res.statusCode = 200;
+  //console.log(req.query.json)
+  var csv = toCSV(req.query.json);
+  console.log(csv);
+  res.end(csv);
+});
 
 app.listen(port, 'localhost');
 
