@@ -4,7 +4,7 @@ var app = express();
 var port = 8000;
 
 
-app.use(express.static('Client/View'));
+app.use(express.static('client'));
 
 
 app.listen(port, 'localhost');
