@@ -1,6 +1,5 @@
-module.exports.toCSV = (input) => {
+module.exports.toCSV = (input, cb) => {
   input = JSON.parse(input);
-  console.log(input);
   debugger;
     //handle the parent seperate from the children
     //write a recurive function for parsing this correctly
@@ -29,11 +28,15 @@ module.exports.toCSV = (input) => {
     //combine them with a line end
     }
     }
-    result += '\r\n' + line1 + '\r\n' + line2;
+    if (result.length === 0) {
+      result += line1 + '\r\n' + line2;
+    } else {
+      result += '\r\n' + line2
+    }
     }
     innerFunc(input);
-    console.log(result)
-    return result;
+    console.log(result);
+    cb(result);
 };
 
 
