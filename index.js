@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 app.use(express.static('client'));
 app.use(bodyParser.urlencoded({ extended: false }))
-
+app.use(bodyParser.json())
 //when using express, use bodyparser to attach a body to the request
 app.post('/csv', (req, res) => {
   debugger;
